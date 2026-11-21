@@ -1,0 +1,391 @@
+{
+  "info": {
+    "_postman_id": "97c11bb2-30bd-49e1-ae6b-d3c7d75ff9cf",
+    "name": "HealthCare",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53572842",
+    "_collection_link": "https://go.postman.co/collection/53572842-97c11bb2-30bd-49e1-ae6b-d3c7d75ff9cf?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"User1\",\n    \"email\": \"testuser1@example.com\",\n    \"password\": \"TestPassword@123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();",
+              "",
+              "pm.collectionVariables.set(\"access_token\", response.access);",
+              "pm.collectionVariables.set(\"refresh_token\", response.refresh);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"testuser1@example.com\",\n    \"password\": \"TestPassword@123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Patient",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Rahul Sharma\",\n    \"age\": 25,\n    \"gender\": \"Male\",\n    \"address\": \"Bengaluru, Karnataka\",\n    \"phone_number\": \"9876543210\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/patients/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Patients",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/patients/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Patient By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/patients/2/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            "2",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Patient",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/patients/2/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            "2",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Patient",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/patients/2/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "patients",
+            "2",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Doctor",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Dr. Rajesh Kumar\",\n    \"specialization\": \"Cardiologist\",\n    \"email\": \"rajesh.kumar@example.com\",\n    \"phone_number\": \"9876501234\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/doctors/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "doctors",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Doctors",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/doctors/2/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "doctors",
+            "2",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Doctor",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Dr. Rajesh Kumar\",\n    \"specialization\": \"Cardiology\",\n    \"email\": \"rajesh.kumar@example.com\",\n    \"phone_number\": \"9876501234\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/doctors/2/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "doctors",
+            "2",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Doctor",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/doctors/2/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "doctors",
+            "2",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Assign Doctor To Patient",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/mappings/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "mappings",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Mappings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/mappings/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "mappings",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Doctors By Patient ID",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Patient Doctor Mapping",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{access_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "refresh_token",
+      "value": ""
+    }
+  ]
+}
